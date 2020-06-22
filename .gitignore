@@ -1,0 +1,6 @@
+venv
+_pycache__/*
+__pycache__/app.cpython-37.pyc
+__pycache__/classifier.cpython-37.pyc
+node_modules
+.idea
