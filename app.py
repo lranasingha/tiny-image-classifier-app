@@ -24,7 +24,7 @@ def health():
 
 @app.route("/")
 def root():
-    return render_template('index.html')
+    return health()
 
 
 @app.route('/api/classify', methods=['POST'])
