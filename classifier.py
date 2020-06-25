@@ -73,6 +73,10 @@ class Classifier:
             return self.interpret_class(X, model)
 
     def interpret_class(self, x, model):
+        # predict_proba = model.predict_proba(x)
+        # if predict_proba[0][0] < 0.5:
+        #     return "unknown"
+
         classes = model.predict_classes(x)
 
         if self.class_labels is None:

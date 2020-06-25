@@ -6,10 +6,11 @@ from werkzeug.utils import secure_filename
 
 from classifier import Classifier
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='./static', template_folder="./public")
+
 UPLOAD_FOLDER = tempfile.gettempdir() + '/tmp-images'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
-classifier = Classifier('data/saved-model.h5', 'data/class-labels.json')
+classifier = Classifier('data/cnn-model-v2.h5', 'data/class-labels.json')
 
 
 def allowed_file(filename):
@@ -24,7 +25,7 @@ def health():
 
 @app.route("/")
 def root():
-    return health()
+    return render_template('index.html')
 
 
 @app.route('/api/classify', methods=['POST'])
